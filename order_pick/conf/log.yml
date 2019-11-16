@@ -1,0 +1,32 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  simple:
+    format: '%(asctime)s [%(filename)s:%(funcName)s:%(lineno)d] [%(levelname)s]- [%(message)s]'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+  console_err:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stderr
+  log_file:
+    class : logging.handlers.TimedRotatingFileHandler
+    formatter: simple
+    filename: order_pick/log/order_pick.log
+    interval: 1
+    backupCount: 30
+    encoding: utf8
+    when: D
+loggers:
+  Logger:
+    level: DEBUG
+    handlers: [log_file]
+    propagate: 0
+root:
+  level: DEBUG
+  handlers: [console_err]

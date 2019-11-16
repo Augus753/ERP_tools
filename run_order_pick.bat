@@ -1,0 +1,1 @@
+python-3.6.5-embed-amd64\python.exe order_pick\bin\run.py

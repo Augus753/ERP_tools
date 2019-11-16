@@ -144,7 +144,7 @@ class ProductModelDay():
             else:
                 # self.rest_num -= order.num
                 # 完成交单，交单成功
-                log.info('完成交单，交单成功，', p.pre_num)
+                log.info('完成交单，交单成功，%d', p.pre_num)
                 # p.delivery_success()
                 order.num = 0
                 return True
@@ -229,7 +229,6 @@ class ProductModelYear():
         self.order_pool.append(order)
         # 首次添加，寻找可能的交货期
         delivery_idx = self._get_check_day(order)
-        log.info('delivery_idx:', delivery_idx)
         delivery_status = DELIVERY_FAIL
         if delivery_idx < 0:
             log.info('交单失败，%s' % order)
@@ -245,7 +244,6 @@ class ProductModelYear():
                 break
         for j in range(delivery_idx, day_num):
             product_model = self.product_model_days[j]
-            log.info('交单结束 %s' % product_model)
             if delivery_status == DELIVERY_SUCCESS:
                 for p in product_model.products:
                     log.info('交单成功，%s' % p)

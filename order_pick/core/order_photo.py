@@ -112,7 +112,7 @@ class ProductModelPhoto():
         plt.ylabel('产品数', font1)
         plt.title('单日最大可交产品数', font1)
         plt.grid(True, axis='both', ls=':', color='r', alpha=0.3)
-        self.canvas.show()
+        self.canvas.draw()
 
     # def _quit(self):
     #     '''退出'''
@@ -185,4 +185,4 @@ class ProductNumPhoto():
         # plt.grid(True, axis='both', ls=':', color='r', alpha=0.3)
         # plt.show()
         plt.legend(loc='best')
-        self.canvas.show()
+        self.canvas.draw()

@@ -11,6 +11,7 @@
 2、若之前生产的产品也不足，自动转化当日其他产品订单为所选产品，若依然不足，转化之前的其他产品订单。
 '''
 import copy
+import os
 import random
 
 import xlsxwriter
@@ -23,7 +24,8 @@ PRODUCT_NAME = (P1, P2, P3, P4, P5)
 DELIVERY_SUCCESS = 0
 DELIVERY_UNKNOW = 1
 DELIVERY_FAIL = 2
-ORDER_FILE_NAME = r'订单列表.xlsx'
+ROOT_PATH = os.path.abspath(os.path.dirname(__file__)).split('order_pick')[0]
+ORDER_FILE_NAME = r'%s订单列表.xlsx' % ROOT_PATH
 DEFAULT_PRODUCTION_CYCLE = 48
 
 
